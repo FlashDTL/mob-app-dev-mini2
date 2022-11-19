@@ -14,7 +14,9 @@ class LocationHelper(private val mContext: Context) {
         5000 //5s
     ).build()
 
-    var registeredCallbacks: ArrayList<LocationCallback> = arrayListOf()
+    companion object{
+        var registeredCallbacks: ArrayList<LocationCallback> = arrayListOf()    // As I understand its' size is maximum 1. And it does not update when we change location. It updates with relaunch.
+    }
 
     fun requestLocationUpdates( callback: LocationCallback) {
         val builder = LocationSettingsRequest.Builder().addLocationRequest(locationRequest)
@@ -37,8 +39,8 @@ class LocationHelper(private val mContext: Context) {
         fusedLocationClient.requestLocationUpdates(locationRequest,
             callback,
             Looper.getMainLooper())
-        registeredCallbacks.add(callback)
 
+        registeredCallbacks.add(callback)
     }
 
     fun stopLocationUpdates(){

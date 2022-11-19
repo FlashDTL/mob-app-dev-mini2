@@ -37,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation 'com.squareup.picasso:picasso:2.8' // To set imageView using URL
+
     implementation 'com.koushikdutta.ion:ion:3.1.0' //Ion
 
     implementation 'androidx.core:core-ktx:1.7.0'
